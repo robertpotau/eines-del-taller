@@ -5,12 +5,12 @@
  */
 // Eines del taller — service worker (offline). El genera tools/build.py a partir d'aquest fitxer.
 // Estratègia: xarxa primer per a HTML/JS/JSON (sempre fresc si hi ha connexió); caché primer per a imatges i fonts.
-const CACHE = "eines-v1.0";
+const CACHE = "eines-v1.0.1";
 const ASSETS = [
  "./",
  "./index.html",
- "./manifest.json",
  "./icon.svg",
+ "./credits-fotos.html",
  "./fonts/nunito-400.woff2",
  "./img/01/2.jpg",
  "./img/01/3.jpg",

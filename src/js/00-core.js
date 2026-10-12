@@ -3,7 +3,7 @@
    (c) 2026 Robert Potau Nuñez. Tots els drets reservats. Motor derivat de l'obra pròpia Adjectivia.
    ============================================================ */
 'use strict';
-const VERSION = '1.0';
+const VERSION = '1.0.1';
 const BUILD_DATE = '@@DATE@@';          // la posa tools/build.py
 
 /* ---------- tiny DOM helpers ---------- */

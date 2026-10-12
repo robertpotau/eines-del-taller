@@ -57,7 +57,7 @@ def main():
     html = html.replace("@@DATE@@", date).replace("@@VER@@", "v" + ver + " — " + date)
 
     # service worker: precache de la pagina, la font, el manifest i totes les imatges
-    assets = ["./", "./index.html", "./manifest.json", "./icon.svg", "./fonts/nunito-400.woff2"]
+    assets = ["./", "./index.html", "./icon.svg", "./credits-fotos.html", "./fonts/nunito-400.woff2"]
     for e in data["eines"]:
         assets += ["./" + f["f"] for f in e["fotos"]] + ["./" + e["esquema"]]
     sw = (ROOT / "sw.template.js").read_text(encoding="utf-8").replace("@@VERSION@@", ver).replace("@@ASSETS@@", json.dumps(assets, indent=1))

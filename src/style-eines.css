@@ -1,0 +1,90 @@
+/* Nunito (SIL OFL 1.1) — font local, sense connexions externes */
+@font-face { font-family: 'Nunito'; font-style: normal; font-weight: 400 900; font-display: swap; src: url('fonts/nunito-400.woff2') format('woff2'); }
+/* Eines del taller — estils propis (c) 2026 Robert Potau Nuñez. Tots els drets reservats. */
+.fam-dot { display: inline-grid; place-items: center; width: 1.4em; height: 1.4em; border-radius: 50%; background: var(--fc, #888); vertical-align: -.3em; }
+.fam-dot .ico { width: .95em; height: .95em; }
+.fam-chip { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .8rem; border-radius: 99rem; font-weight: 800; background: color-mix(in srgb, var(--fc) 35%, #12123a); border: .13rem solid var(--fc); }
+.choice.sm[style*="--fc"].on { border-color: var(--fc); background: color-mix(in srgb, var(--fc) 30%, transparent); box-shadow: 0 0 .9rem color-mix(in srgb, var(--fc) 40%, transparent); }
+.catalog h2, .tool-sheet h2 { font-size: 2rem; margin-bottom: .6rem; }
+.fam-banner { display: none; align-items: center; gap: .8rem; padding: .7rem 1rem; border-radius: 1rem; margin: .4rem 0; background: color-mix(in srgb, var(--fc, #888) 20%, transparent); border: 1px solid var(--fc, var(--line)); }
+.fam-banner.on { display: flex; flex-wrap: wrap; } .fam-banner p { flex: 1; min-width: 14rem; }
+.tcards { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: .8rem; margin: .8rem 0 1.2rem; }
+.tcard { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .6rem; border-radius: 1.1rem; text-align: center; background: var(--card); border: .15rem solid color-mix(in srgb, var(--fc) 60%, transparent); transition: .15s; }
+.tcard:hover { transform: translateY(-.25rem); background: var(--card2); border-color: var(--fc); }
+.tc-img { width: 100%; height: 8rem; object-fit: contain; border-radius: .7rem; background: #fff; }
+.tcard small { color: var(--text2); font-weight: 700; }
+img.missing { visibility: hidden; }
+.tool-sheet .gal { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.gal-main { width: 100%; height: 18rem; border-radius: 1rem; background: #fff; display: grid; place-items: center; overflow: hidden; }
+.gal-main img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.gal-label { color: var(--text2); font-weight: 700; }
+.gal-ths { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+.gal-th { width: 4.2rem; height: 4.2rem; border-radius: .6rem; overflow: hidden; background: #fff; border: .15rem solid transparent; }
+.gal-th.on { border-color: var(--fc); box-shadow: 0 0 .7rem var(--fc); } .gal-th img { width: 100%; height: 100%; object-fit: contain; }
+.tool-fam { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; margin: .6rem 0; }
+.fcard.tall { height: 30rem; }
+.fcard.tall .fc-face { border: .3rem solid var(--fc); overflow: hidden; }
+.fc-big { max-width: 100%; max-height: 20rem; min-height: 0; object-fit: contain; flex: 1 1 auto; }
+.fc-fam { display: flex; flex-direction: column; align-items: center; gap: .3rem; } .fc-fam small { font-size: .85rem; max-width: 34rem; }
+.fc-mini { display: flex; gap: .6rem; height: 8rem; } .fc-mini img { height: 100%; width: auto; max-width: 14rem; object-fit: contain; border-radius: .5rem; background: #fff; border: 1px solid #ccd; }
+.fc-face .fam-chip { color: #fff; } .fc-face .wd-ca { color: #b45309; }
+.actions.left { justify-content: flex-start; align-items: center; margin: .4rem 0 0; }
+.fc-count { margin-left: auto; color: var(--gold); }
+.hub-title.grp { color: var(--mc); display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1.4rem; }
+.mode-card.soon { opacity: .45; filter: grayscale(.6); cursor: not-allowed; } .mode-card.soon:hover { transform: none; box-shadow: none; }
+.mode-card.hot::after { content: none; }
+@media (max-width: 40rem) { .fcard.tall { height: 34rem; } .gal-main { height: 13rem; } }
+
+/* Classifica */
+.classify { max-width: 62rem; margin: 0 auto; display: flex; flex-direction: column; gap: .7rem; align-items: center; }
+.cls-count { text-align: center; } .cls-turn { display: flex; align-items: center; gap: .4rem; padding: .2rem .9rem; border-radius: 99rem; border: .13rem solid var(--pc); background: color-mix(in srgb, var(--pc) 20%, transparent); }
+.classify .fc-prog { width: 100%; }
+.cls-card { display: flex; flex-direction: column; align-items: center; gap: .3rem; padding: .8rem 1.2rem; border-radius: 1.4rem; background: linear-gradient(160deg, #fff, #dfe4ff); color: #1a1a4a; box-shadow: 0 .8rem 2rem rgba(0,0,0,.4); width: min(30rem, 100%); }
+.cls-img { width: 100%; height: 13rem; object-fit: contain; } .cls-card h2 { font-size: 2rem; text-align: center; }
+.cls-buckets { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .6rem; width: 100%; }
+.bucket { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .25rem; padding: .7rem .5rem; min-height: 5rem; text-align: center; border-radius: 1rem; border: .17rem solid var(--fc); background: color-mix(in srgb, var(--fc) 22%, #15153f); transition: .15s; }
+.bucket:hover:not(:disabled) { transform: translateY(-.2rem); background: color-mix(in srgb, var(--fc) 38%, #15153f); }
+.bucket small { color: var(--text2); font-size: .72rem; line-height: 1.2; }
+.bucket .bk-key { position: absolute; top: .25rem; left: .45rem; font-size: .7rem; opacity: .55; font-weight: 800; }
+.bucket.right { background: rgba(61,220,151,.45); border-color: var(--good); box-shadow: 0 0 1.2rem rgba(61,220,151,.6); }
+.bucket.wrong { background: rgba(255,107,107,.45); border-color: var(--bad); animation: shake .35s; }
+.bucket:disabled:not(.right):not(.wrong) { opacity: .45; }
+.cls-fb { display: none; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; padding: .8rem 1.2rem; border-radius: 1rem; width: 100%; text-align: center; }
+.cls-fb.on { display: flex; } .cls-fb.good { background: rgba(61,220,151,.2); border: 1px solid var(--good); } .cls-fb.bad { background: rgba(255,107,107,.18); border: 1px solid var(--bad); }
+.cls-xp { font-weight: 900; color: var(--gold); }
+
+/* Memory */
+.mcard .front.word { font-size: 1.15rem; } .mcard .front.pic { padding: .2rem; } .mcard .front.pic img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.mcard .front.fam { display: flex; flex-direction: column; gap: .3rem; font-size: 1rem; background: linear-gradient(160deg, color-mix(in srgb, var(--fc) 30%, #fff), #fff); border-color: var(--fc); }
+.mem-last { color: var(--gold); display: block; }
+.mcard .face { overflow: hidden; }
+.mcard .front.pic img { position: absolute; inset: .25rem; width: calc(100% - .5rem); height: calc(100% - .5rem); max-width: none; max-height: none; object-fit: contain; }
+
+/* Preguntes (Escala i altres modes de 4 opcions) */
+.q-imgbox { width: min(24rem, 90%); height: 14rem; background: #fff; border-radius: 1.2rem; display: grid; place-items: center; overflow: hidden; box-shadow: 0 .6rem 1.6rem rgba(0,0,0,.4); }
+.q-imgbox img { width: 100%; height: 100%; object-fit: contain; } .q-imgbox.draw img { padding: .4rem; }
+.q-text { font-size: clamp(1.8rem, 4.5vw, 3rem); } .q-text.def { font-size: clamp(1.2rem, 3vw, 1.9rem); color: var(--text); font-weight: 800; max-width: 40rem; }
+.opt .olabel { font-size: 1.25rem; }
+.q-opts.imgs .opt { justify-content: center; padding: .5rem; } .opt-img { width: 100%; height: 7.5rem; object-fit: contain; background: #fff; border-radius: .8rem; }
+.sum-img { height: 3.2rem; width: auto; vertical-align: middle; background: #fff; border-radius: .4rem; }
+@media (max-width: 40rem) { .q-imgbox { height: 10rem; } .opt-img { height: 5rem; } .opt .olabel { font-size: 1.05rem; } }
+
+/* Uneix */
+.matchgame { max-width: 56rem; margin: 0 auto; display: flex; flex-direction: column; gap: .7rem; }
+.mt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; } .mt-col { display: flex; flex-direction: column; gap: .6rem; }
+.mt { display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 5.2rem; padding: .4rem .6rem; border-radius: 1rem; background: var(--card2); border: .17rem solid var(--line); font-weight: 800; font-size: 1.2rem; text-align: center; transition: .15s; }
+.mt:hover:not(.done) { border-color: #fff; transform: translateY(-.1rem); }
+.mt.sel { border-color: var(--gold); background: rgba(255,210,63,.22); box-shadow: 0 0 1rem rgba(255,210,63,.4); }
+.mt.done { border-color: var(--pc); background: color-mix(in srgb, var(--pc) 30%, #15153f); opacity: .75; cursor: default; }
+.mt.wrong { border-color: var(--bad); background: rgba(255,107,107,.3); animation: shake .35s; }
+.mt-img { height: 4.6rem; max-width: 100%; object-fit: contain; background: #fff; border-radius: .6rem; }
+/* Quina eina és? */
+.hotseat { max-width: 44rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: .7rem; text-align: center; }
+.hs-stage { width: min(26rem, 100%); height: 17rem; border-radius: 1.2rem; background: #fff; overflow: hidden; display: grid; place-items: center; box-shadow: 0 .8rem 2rem rgba(0,0,0,.45); }
+.hs-img { width: 100%; height: 100%; object-fit: contain; transition: filter .6s; }
+.hs-dots { display: flex; gap: .5rem; } .hs-dot { padding: .2rem .7rem; border-radius: 99rem; border: .12rem solid var(--line); font-weight: 800; font-size: .9rem; color: var(--text2); }
+.hs-dot.on { border-color: var(--gold); color: #2b1a00; background: var(--gold); } .hs-dot.past { opacity: .35; text-decoration: line-through; }
+.hs-info { min-height: 2.2rem; } .hs-answer { font-size: 1.5rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+@media (max-width: 40rem) { .mt-grid { gap: .5rem; } .mt { font-size: 1rem; min-height: 4.4rem; } .hs-stage { height: 13rem; } }
+
+.credits { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--line); font-size: .85rem; } .credits p { margin: .25rem 0; } .credits a { color: var(--sky); }

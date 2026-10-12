@@ -1,0 +1,11 @@
+{
+  "name": "Eines del taller — joc de Tecnologia",
+  "short_name": "Eines del taller",
+  "description": "Reconeix les eines del taller de Tecnologia: foto, nom i família.",
+  "lang": "ca",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1d3a",
+  "theme_color": "#0b1d3a",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

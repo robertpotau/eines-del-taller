@@ -1,0 +1,5 @@
+_backup-original/
+img/raw/
+PLA.md
+__pycache__/
+*.pyc

@@ -28,14 +28,16 @@ T=[("01","Martell de bola","percussio",[]),("02","Maceta de niló","percussio",[
 # Revisio manual (2026-10-12): imatges que NO son fotos de l'eina
 DIB={"01":[1],"02":[2],"03":[1],"04":[6],"05":[5],"06":[6],"07":[5],"09":[5],"10":[1],"11":[1],"12":[5],"13":[5],"14":[3],"15":[5],"16":[5],"18":[5],"19":[5,6],"21":[4],"22":[6],"23":[4],"25":[5],"26":[5],"27":[5],"29":[1],"30":[3],"32":[6],"33":[2],"34":[2],"35":[4],"36":[2,4],"37":[5],"38":[5],"39":[4]}
 # no corresponen a l'eina (altra eina, joc mixt, tallades, il.lustracio...): revisio 2026-10-16
-MALA={"01":[6],"02":[6],"08":[5],"11":[5],"12":[6],"13":[6],"14":[6],"16":[6],"20":[3,4,5,6],"21":[6],"24":[3,4,5,6],"28":[4,5],"32":[4,5]}
+MALA={"01":[6],"02":[6],"08":[5],"11":[5],"12":[6],"13":[6],"14":[4,6],"16":[6],"20":[3,4,5,6],"21":[6],"24":[3,4,5,6],"28":[4,5],"32":[4,5]}
 # multi-eina, marca d'aigua o ambigues: nomes a Flashcards/Cataleg (no als jocs de preguntes)
-NO_NETA={"07":[4],"08":[4],"11":[6],"14":[4,5],"15":[2,4],"17":[2],"18":[1],"20":[1],"21":[5],"22":[3],"23":[3],"24":[1],"25":[2,6],"31":[1,4,5],"32":[3],"33":[4],"34":[5,6],"37":[4],"38":[6]}
+NO_NETA={"07":[4],"08":[4],"11":[6],"14":[4,5],"15":[2,4],"17":[2],"18":[1],"20":[1,10],"21":[5],"22":[3],"23":[3],"24":[1],"25":[2,6],"31":[1,4,5],"32":[3],"33":[4],"34":[5,6],"37":[4],"38":[6]}
 fam_ids=[f[0] for f in FAM]; out=[]
 for n,nom,fam,alies in T:
     od=os.path.join(R,"img",n); shutil.rmtree(od,ignore_errors=True); os.makedirs(od)
     fotos=[]
-    for f in sorted(glob.glob(os.path.join(R,"img","raw",n,"*.jpg")),key=lambda p:int(os.path.basename(p)[:-4])):
+    # fotos de img/raw (carpeta de Drive, 1-6) + fotos-extra/NN (afegides a mà des de Wikimedia Commons, 7 endavant)
+    srcs=glob.glob(os.path.join(R,"img","raw",n,"*.jpg"))+glob.glob(os.path.join(R,"fotos-extra",n,"*.jpg"))
+    for f in sorted(srcs,key=lambda p:int(os.path.basename(p)[:-4])):
         k=int(os.path.basename(f)[:-4])
         if k in DIB.get(n,[]) or k in MALA.get(n,[]): continue
         shutil.copy(f,os.path.join(od,f"{k}.jpg")); fotos.append({"f":f"img/{n}/{k}.jpg","neta":k not in NO_NETA.get(n,[])})

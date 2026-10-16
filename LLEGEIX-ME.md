@@ -28,3 +28,14 @@ Estat: **v1.0**. Pla complet: `PLA.md`. Idioma: només català.
 3. **Mode offline sense verificar** en un navegador real (el panell de prova de Claude no deixa registrar service workers); `sw.js` segueix el patró de VerbQuest i passa `node --check`.
 4. Fotos amb pocs exemplars: Compàs de punta i Bufador (1 foto cada una; els jocs usen l'esquema si cal).
 - Fotos: del centre + 8 de Wikimedia amb crèdit a `CREDITS-fotos.txt` (cal mantenir l'atribució en publicar).
+
+## Publicar / actualitzar (flux)
+1. Editar `src/` o les dades → pujar `VERSION` a `src/js/00-core.js` → `python tools/build.py` → `index.html?selftest` ha de dir PASSED.
+2. Registre: `CANVIS_2026-10-12_v1.0.md` + fila a `claude-projects\VERSIONS-JOCS.md` + `python GAMES-TEMPLATE/versions.py` (sense avisos).
+3. `git commit` + `git push` d'aquest repo (públic `robertpotau/eines-del-taller`).
+4. `claude-projects\landing-page\sync-game.ps1 -Slug eines-del-taller -NoPush` (SENSE `2>&1`; exclou `src`, `tools`, `raw`, `_backup-original` i `manifest.json`).
+5. **Abans de pujar la landing: `git fetch` + `git pull --rebase origin main`.** La landing també rep commits des d'altres ordinadors (p. ex. s'hi va afegir Canvi d'Unitat el 2026-10-16) i un `push` directe es rebutja (*non-fast-forward*). Si passa: `git pull --rebase origin main` i tornar a fer `git push`; mai `--force`.
+6. Verificar en directe (`curl --ssl-no-revoke`) que `#ver` mostra la versió nova i `?selftest` diu PASSED.
+
+## Fotos extra
+`fotos-extra/NN/k.jpg` (k des de 7) = fotos afegides a mà de Wikimedia Commons; `tools/genera-dades.py` les barreja amb les de `img/raw` (carpeta de Drive). Crèdit de cada una a `CREDITS-fotos.txt`; `tools/genera-credits.py` en fa `credits-fotos.html`. Criteri: només fotos on es vegi clarament l'eina (mai edificis, cares, persones o escultures). Cal revisar-ho visualment abans de pujar.

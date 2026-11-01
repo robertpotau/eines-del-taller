@@ -54,7 +54,7 @@ function showSplash() {
     h('p', { class: 'tagline' }, 'Reconeix l’eina, el seu nom i la seva família!'),
     h('div', { class: 'splash-faces' }, ['1F528', '1FA9A', '1FA9B', '1F527', '1F4CF', '1F97D', '1F9F0'].map(c => ico(c))),
     h('button', { class: 'btn primary huge', id: 'btn-play', onclick: () => { sfx('start'); if (first) { saveAll(); showProfiles(); } else showHub(); } }, ico('25B6'), ' Juga'),
-    h('p', { class: 'muted' }, 'Tecnologia · 39 eines i 10 famílies · 1 a 6 jugadors'));
+    h('p', { class: 'muted' }, 'Tecnologia · ' + TOOLS.length + ' eines i ' + FAMS.length + ' famílies · 1 a 6 jugadors'));
   render(wrap, '');
   const b = $('#btn-play'); if (b) b.focus({ preventScroll: true });
 }
@@ -90,7 +90,7 @@ function runSelfTest() {
   const ok = (cond, s) => { if (!cond) { fails.push(s); out.push('FAIL  ' + s); } };
 
   log('Joc v' + VERSION + ' · eines: ' + TOOLS.length + ' · famílies: ' + FAMS.length);
-  ok(TOOLS.length === 39, 'han de ser 39 eines');
+  ok(TOOLS.length + AMAGADES.size === 39, 'han de ser 39 eines en total (visibles + amagades)');
   ok(FAMS.length === 10, 'han de ser 10 famílies');
   const ids = new Set(), names = new Set();
   TOOLS.forEach(t => {

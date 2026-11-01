@@ -5,7 +5,10 @@
 const FAM_ICONS = { percussio: '1F528', tall: '1FA9A', abrasio: '1F9FD', perforacio: '1F573', agafar: '1F5DC', cargolar: '1FA9B', passives: '1F9F1', mesurar: '1F4CF', soldar: '1F525', proteccio: '1F97D' };
 const FAMS = EINES_DATA.families.map(f => Object.assign({}, f, { ic: FAM_ICONS[f.id] }));
 const FAMMAP = new Map(FAMS.map(f => [f.id, f]));
-const TOOLS = EINES_DATA.eines.map(e => Object.assign({}, e, { fam: FAMMAP.get(e.familia) }));
+/** Eines programades però OCULTES (no surten enlloc del joc ni a les preguntes). Per mostrar-les: treure l'id d'aquí,
+ *  pujar VERSION i fer build. Ara: les que no són a la "Presentació visual" que estudien els alumnes (Centenella, Puntes de senyalar). */
+const AMAGADES = new Set(['31', '32']);
+const TOOLS = EINES_DATA.eines.filter(e => !AMAGADES.has(e.id)).map(e => Object.assign({}, e, { fam: FAMMAP.get(e.familia) }));
 const TMAP = new Map(TOOLS.map(t => [t.id, t]));
 const toolById = id => TMAP.get(id);
 const toolsOf = fid => TOOLS.filter(t => t.familia === fid);

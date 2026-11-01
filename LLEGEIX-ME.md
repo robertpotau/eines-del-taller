@@ -39,3 +39,6 @@ Estat: **v1.0**. Pla complet: `PLA.md`. Idioma: només català.
 
 ## Fotos extra
 `fotos-extra/NN/k.jpg` (k des de 7) = fotos afegides a mà de Wikimedia Commons; `tools/genera-dades.py` les barreja amb les de `img/raw` (carpeta de Drive). Crèdit de cada una a `CREDITS-fotos.txt`; `tools/genera-credits.py` en fa `credits-fotos.html`. Criteri: només fotos on es vegi clarament l'eina (mai edificis, cares, persones o escultures). Cal revisar-ho visualment abans de pujar.
+
+## Eines amagades (v1.1.0, 2026-11-01)
+Només es veuen les eines de la «Presentació visual de les eines i les famílies (1r ESO)» que estudien els alumnes: **37 de 39**. Les altres 2 (**31 Centenella, 32 Puntes de senyalar**) segueixen programades i amb fotos però estan amagades: constant `AMAGADES` a `src/js/10-data.js` (filtra `TOOLS`). Per mostrar-les quan els alumnes acabin l'examen: treure l'id de `AMAGADES`, pujar `VERSION`, `python tools/build.py`, publicar. L'auto-prova exigeix visibles + amagades = 39.

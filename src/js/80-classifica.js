@@ -63,15 +63,17 @@ function startClassifica(cfg, pids) {
       if (pids.length > 1) wrap.append(h('div', { class: 'cls-turn', style: '--pc:' + PCOLORS[pid] }, avatar(pid, 'sm'), h('b', null, ' Torn de ' + pname(pid))));
       wrap.append(h('div', { class: 'muted cls-count' }, 'Eina ' + Math.min(done + 1, total) + ' de ' + total));
       wrap.append(h('div', { class: 'fc-prog' }, h('i', { style: 'width:' + (100 * done / total) + '%' })));
-      wrap.append(h('div', { class: 'cls-card' }, pic(photoOf(t, true), t.nom, 'cls-img'), h('h2', null, t.nom)));
-      if (cfg.timer) { cd = countdown(cfg.timer, () => answer(null), { tick: true }); wrap.append(cd.el); }
+      const left = h('div', { class: 'cls-left' }, h('div', { class: 'cls-card' }, pic(photoOf(t, true), t.nom, 'cls-img'), h('h2', null, t.nom)));
+      const right = h('div', { class: 'cls-right' });
+      if (cfg.timer) { cd = countdown(cfg.timer, () => answer(null), { tick: true }); right.append(cd.el); }
       const grid = h('div', { class: 'cls-buckets' });
       fams.forEach((f, i) => {
         const b = h('button', { class: 'bucket', style: '--fc:' + f.color, onclick: () => answer(f.id) },
           h('span', { class: 'bk-key' }, i === 9 ? '0' : String(i + 1)), famDot(f), h('b', null, f.nom), hint ? h('small', null, f.def) : null);
         bucketEls[f.id] = b; grid.append(b);
       });
-      wrap.append(grid, fb);
+      right.append(grid, fb);
+      wrap.append(h('div', { class: 'cls-grid' }, left, right));
       wrap.append(h('div', { class: 'actions' }, h('button', { class: 'btn small', onclick: () => showHub() }, '← Surt')));
       Keys.on(e => {
         if (e.key === 'Enter' || e.key === ' ') { const nb = $('#cls-next'); if (nb) { nb.click(); return true; } return false; }

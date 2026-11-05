@@ -157,7 +157,9 @@ function startHotSeat(cfg, pids) {
       const banner = h('div', { class: 'who-banner slim', style: '--pc:' + PCOLORS[pid] }, avatar(pid, 'md'),
         h('div', null, h('b', null, pname(pid)), h('small', null, 'Eina ' + (i + 1) + ' de ' + total)));
       Keys.on(e => { const nb = $('#hs-next'); if (nb && (e.key === 'Enter' || e.key === ' ')) { nb.click(); return true; } return false; });
-      return h('div', { class: 'hotseat' }, bar, banner, h('div', { class: 'q-lead' }, 'Quina eina és?'), stage, dots, info, btns);
+      return h('div', { class: 'hotseat' }, bar, banner, h('div', { class: 'hs-grid' },
+        h('div', { class: 'hs-left' }, h('div', { class: 'q-lead' }, 'Quina eina és?'), stage),
+        h('div', { class: 'hs-right' }, dots, info, btns)));
     }, 'Quina eina és?');
     bar.update(G.scores, pid);
     paint();

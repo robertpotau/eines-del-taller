@@ -56,19 +56,17 @@ function makeQuestion(ctx) {
 /* ---------- vista de la pregunta ---------- */
 /** onPick(i) quan s'escull una opció (clic o tecla A-D / 1-4). Retorna ajudes per marcar el resultat. */
 function qView(q, onPick) {
-  const wrap = h('div', { class: 'qv t-' + q.type });
-  wrap.append(h('div', { class: 'q-lead' }, q.lead));
-  const bigBox = h('div', { class: 'q-big' }, q.big);
-  if (ttsReady() && q.speakText && q.type !== 'nom-foto' && q.type !== 'nom-fam' && q.type !== 'def-fam') { /* no es llegeix el nom si és la resposta */ }
-  wrap.append(bigBox);
+  /* Dues zones: a l'esquerra la pregunta (foto/esquema/text gran) i a la dreta les 4 opcions.
+     Si l'espai és estret (mòbil, tauleta vertical) es posen una sobre l'altra: vegeu «.qv-grid» a style-eines.css. */
   const hasImg = q.options.some(o => o.img);
+  const wrap = h('div', { class: 'qv t-' + q.type + (hasImg ? ' imgopts' : '') });
+  const left = h('div', { class: 'qv-left' }, h('div', { class: 'q-lead' }, q.lead), h('div', { class: 'q-big' }, q.big));
   const opts = h('div', { class: 'q-opts' + (hasImg ? ' imgs' : '') });
   const btns = q.options.map((o, i) => h('button', { class: 'opt c' + i, 'data-i': i, onclick: () => { if (!btns[i].disabled) onPick(i); } },
     h('span', { class: 'letter' }, LETTERS[i]), o.img ? pic(o.img, o.alt || '', 'opt-img') : h('span', { class: 'olabel' }, o.label)));
   btns.forEach(b => opts.append(b));
-  wrap.append(opts);
   const hint = h('div', { class: 'q-hint' });
-  wrap.append(hint);
+  wrap.append(h('div', { class: 'qv-grid' }, left, h('div', { class: 'qv-right' }, opts, hint)));
   const keyFn = e => {
     const k = e.key.toLowerCase();
     let i = ['a', 'b', 'c', 'd'].indexOf(k); if (i < 0) i = ['1', '2', '3', '4'].indexOf(k);

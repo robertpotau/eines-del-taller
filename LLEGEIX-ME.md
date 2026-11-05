@@ -1,7 +1,7 @@
 # Eines del taller (joc-eines)
 
 Joc de Tecnologia (1r ESO, Tema 02) per reconèixer foto, nom i família de les 39 eines oficials del taller.
-Estat: **v1.0**. Pla complet: `PLA.md`. Idioma: només català.
+Estat: **v1.2.0** (2026-11-05, disseny responsive, vegeu `CANVIS_2026-11-05_v1.2.0.md`). Pla complet: `PLA.md`. Idioma: només català.
 
 ## Fer-lo servir / provar-lo
 - Cal servir-lo per http (els navegadors no deixen executar-lo des de file://):
